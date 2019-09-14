@@ -8,9 +8,9 @@
 #ifndef INTERRUPTS_H_
 #define INTERRUPTS_H_
 
-#include "DIO.h"
-#include "Avr_MOD.h"
-#include "STD_Def.h"
+#include "avr_Config.h"
+#include "com_macros.h"
+#include "std_def.h"
 
 #define Enable_GI (BIT_IS_SET (SREG,7)) /* Enable the global interrupt flag */
 #define Disable_GI (BIT_IS_CLEAR (SREG,7)) /* Disable the global interrupt flag */

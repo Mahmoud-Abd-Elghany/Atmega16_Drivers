@@ -5,8 +5,8 @@
  *      Author: Ma7amee7o
  */
 
-#ifndef AVR_MOD_H_
-#define AVR_MOD_H_
+#ifndef AVR_CONFIG_H_
+#define AVR_CONFIG_H_
 
 #ifndef F_CPU
 #define F_CPU 1000000UL /* 1MHz Clock Frequency */
@@ -18,4 +18,4 @@
 #include <util/delay.h>
 
 
-#endif /* AVR_MOD_H_ */
+#endif /* AVR_CONFIG_H_ */

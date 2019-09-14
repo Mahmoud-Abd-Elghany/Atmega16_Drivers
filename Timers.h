@@ -8,7 +8,7 @@
 #ifndef TIMERS_H_
 #define TIMERS_H_
 
-#include "DIO.h"
 #include "Avr_MOD"
+#include "com_macros.h"
 
 #endif /* TIMERS_H_ */

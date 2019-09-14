@@ -5,8 +5,8 @@
  *      Author: Ma7amee7o
  */
 
-#ifndef DIO_H_
-#define DIO_H_
+#ifndef COM_MACROS_H_
+#define COM_MACROS_H_
 
 /* Setting */
 #define SET_BIT(REG,BIT_NUM) (REG = REG | (1<<BIT_NUM)) /* Setting bit to 1 */
@@ -21,4 +21,4 @@
 #define BIT_IS_SET(REG,BIT_NUM) (REG & (1<<BIT_NUM)) /* Checking if the bit is 1 (True if 1) */
 #define BIT_IS_CLEAR(REG,BIT_NUM) (!(REG & (1<<BIT_NUM))) /* Checking if the bit is 0 (True if 0) */
 
-#endif /* DIO_H_ */
+#endif /* COM_MACROS_H_ */
