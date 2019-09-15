@@ -6,17 +6,21 @@
 
 #include "ADC.h"
 
-void ADC_init(void)
+void ADC_init(ADC_config *ADC_config_Ptr)
 {
 
 ADMUX = 0;
-
 SET_BIT (ADCSRA,ADEN); /*enable ADC*/
 
-/* Defining Prescaler */
-SET_BIT (ADCSRA,ADPS0);
-SET_BIT (ADCSRA,ADPS1);
-CLEAR_BIT (ADCSRA,ADPS2);
+
+/* Selecting Prescaler by assigning prescaler value to ADPS0..2 bits  in ADCSRA register  */
+ADCSRA &= ~(0x07); /*clearing used bits*/
+ADCSRA |= ((ADC_config_Ptr->prescaler));
+
+/*Selecting which Source to use by assigning source value to REFS0 & REFS1 bits in ADMUX register */
+ADMUX &= ~(0x02<<6); /*clearing used bits*/
+ADMUX |= ((ADC_config_Ptr->source));
+
 }
 
 uint16 ADC_ReadChannel(uint8 channel)
