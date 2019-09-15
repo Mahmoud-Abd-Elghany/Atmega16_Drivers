@@ -1,8 +1,7 @@
 /*
  * ADC.h
  *
- *  Created on: Sep 13, 2019
- *      Author: Ma7amee7o
+ *      Author: Mahmoud Abdelghany
  */
 
 #ifndef ADC_H_

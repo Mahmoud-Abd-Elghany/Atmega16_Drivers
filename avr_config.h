@@ -1,8 +1,7 @@
 /*
- * CMN_LIB.h
+ * avr_config.h
  *
- *  Created on: Sep 12, 2019
- *      Author: Ma7amee7o
+ *      Author: Mahmoud Abdelghany
  */
 
 #ifndef AVR_CONFIG_H_

@@ -1,8 +1,7 @@
 /*
- * STD_Def.h
+ * Std_def.h
  *
- *  Created on: Sep 12, 2019
- *      Author: Ma7amee7o
+ *      Author: Mahmoud Abdelghany
  */
 
 #ifndef STD_DEF_H_
