@@ -40,10 +40,16 @@ uint8 Keypad_4x3_adjustSwitchNumber(uint8 button_no)
 	{
 	case 10:
 		return '*';
+		break;
 	case 11:
 		return 0;
+		break;
 	case 12:
 		return '#';
+		break;
+	default:
+		return button_no;
+		break;
 	}
 }
 
@@ -54,29 +60,45 @@ uint8 Keypad_4x4_adjustSwitchNumber(uint8 button_no)
 	{
 	case 4:
 		return 'A';
+		break;
 	case 5:
 		return 4;
+		break;
 	case 6:
 		return 5;
+		break;
 	case 7:
 		return 6;
+		break;
 	case 8:
 		return 'B';
+		break;
 	case 9:
 		return 7;
+		break;
 	case 10:
 		return 8;
+		break;
 	case 11:
 		return 9;
+		break;
 	case 12:
 		return 'C';
+		break;
 	case 13:
 		return '*';
+		break;
 	case 14:
 		return 0;
+		break;
 	case 15:
 		return '#';
+		break;
 	case 16:
 		return 'D';
+		break;
+	default:
+		return button_no;
+		break;
 	}
 }

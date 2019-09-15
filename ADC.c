@@ -28,12 +28,11 @@ uint16 ADC_ReadChannel(uint8 channel)
 	while(BIT_IS_CLEAR(ADCSRA,ADIF)); /*Pooling until conversion is done by checking the flag */
 	SET_BIT(ADCSRA,ADIF); /* Clearing flag*/
 	return ADC;
+}
 
-
-
-
-
-
+void ADC_dinit(void)
+{
+	CLEAR_BIT (ADCSRA,ADEN); /*Disable ADC*/
 }
 
 

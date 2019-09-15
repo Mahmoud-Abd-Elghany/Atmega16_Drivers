@@ -1,13 +1,14 @@
 /*
  * Timers.h
  *
- *      Author: Ma7amee7o
+ *      Author: Mahmoud Abdelghany
  */
 
 #ifndef TIMERS_H_
 #define TIMERS_H_
 
-#include "Avr_MOD"
+#include "Avr_config.h"
 #include "com_macros.h"
+#include "Std_def.h"
 
 #endif /* TIMERS_H_ */

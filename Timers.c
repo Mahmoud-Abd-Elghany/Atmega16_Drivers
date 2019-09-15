@@ -1,5 +1,5 @@
 /*
  * Timers.h
  *
- *      Author: Ma7amee7o
+ *      Author: Mahmoud Abdelghany
  */
