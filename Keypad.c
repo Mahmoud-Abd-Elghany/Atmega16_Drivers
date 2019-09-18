@@ -6,8 +6,13 @@
 
 #include "Keypad.h"
 
+#if(N_col == 3)
 static uint8 Keypad_4x3_adjustSwitchNumber(uint8 button_no);
+
+#elif(N_col == 4)
 static uint8 Keypad_4x4_adjustSwitchNumber(uint8 button_no);
+
+#endif
 
 uint8 Keypad_getPressedKey(void)
 {
@@ -33,6 +38,8 @@ uint8 Keypad_getPressedKey(void)
 
 }
 
+
+#if(N_col==3)
 /*Function responsible for changing the no. of button pressed to its true value*/
 uint8 Keypad_4x3_adjustSwitchNumber(uint8 button_no)
 {
@@ -53,6 +60,7 @@ uint8 Keypad_4x3_adjustSwitchNumber(uint8 button_no)
 	}
 }
 
+#elif(N_col==4)
 /*Function responsible for changing the no. of button pressed to its true value*/
 uint8 Keypad_4x4_adjustSwitchNumber(uint8 button_no)
 {
@@ -102,3 +110,4 @@ uint8 Keypad_4x4_adjustSwitchNumber(uint8 button_no)
 		break;
 	}
 }
+#endif

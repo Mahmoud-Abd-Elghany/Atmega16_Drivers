@@ -6,7 +6,7 @@
 #include "Interrupts.h"
 
 
-void Enable_Int (uint8 INT_NO)
+void Enable_Ext_Int (uint8 INT_NO)
 {
 	switch (INT_NO){
 			case 0:
@@ -22,7 +22,7 @@ void Enable_Int (uint8 INT_NO)
 
 }
 
-void Disable_Int (uint8 INT_NO)
+void Disable_Ext_Int (uint8 INT_NO)
 {
 	switch (INT_NO){
 			case 0:

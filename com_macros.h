@@ -7,6 +7,10 @@
 #ifndef COM_MACROS_H_
 #define COM_MACROS_H_
 
+#define ENABLE_GI (BIT_IS_SET (SREG,7)) /* Enable the global interrupt flag */
+#define DISABLE_GI (BIT_IS_CLEAR (SREG,7)) /* Disable the global interrupt flag */
+
+
 /* Setting */
 #define SET_BIT(REG,BIT_NUM) (REG = REG | (1<<BIT_NUM)) /* Setting bit to 1 */
 #define CLEAR_BIT(REG,BIT_NUM) (REG = REG & (~(1<<BIT_NUM))) /* Setting bit to 0 */
