@@ -10,6 +10,7 @@
 void Timer1_init( Timer1_config * Timer1_config)
 {
 	TCNT1 = (Timer1_config -> start); /* setting the no. to start from */
+	TCCR1B &= ~(0x07);
 	TCCR1B |= (Timer1_config -> prescaler); /* setting prescaler value */
 
 
@@ -17,8 +18,11 @@ void Timer1_init( Timer1_config * Timer1_config)
 	{
 	case Normal:
 		/*activating normal mode*/
-		TCCR1A &= ~(0x03); /* clearing WGM10 and WGM11*/
-		TCCR1B &= ~(0x03<<3); /* clearing WGM10 and WGM11*/
+		CLEAR_BIT(TCCR1A,WGM10);
+		CLEAR_BIT(TCCR1A,WGM11);
+		CLEAR_BIT(TCCR1B,WGM12);
+		CLEAR_BIT(TCCR1B,WGM13);
+
 		SET_BIT (TCCR1A,FOC1A);
 		SET_BIT (TCCR1A,FOC1B);
 		break;
@@ -29,10 +33,12 @@ void Timer1_init( Timer1_config * Timer1_config)
 		CLEAR_BIT(TCCR1A,WGM11);/* clearing WGM10 and WGM11*/
 		SET_BIT(TCCR1B,WGM12); /* setting WGM12*/
 		CLEAR_BIT(TCCR1B,WGM13); /* clearing WGM13*/
+
 		OCR1A = (Timer1_config-> compareA_value); /* assigning value to be compared to in A register*/
 		OCR1B = (Timer1_config-> compareB_value); /* assigning value to be compared to in B register*/
+		CLEAR_BIT (TCCR1A,FOC1A);
 		CLEAR_BIT (TCCR1A,FOC1B);
-		SET_BIT (TCCR1A,FOC1A);
+
 		break;
 
 	case fast_PWM:
@@ -41,6 +47,9 @@ void Timer1_init( Timer1_config * Timer1_config)
 		TCCR1B |= (0x03<<3); /*setting WGM12 and WGM13 */
 		OCR1A = (Timer1_config-> compareA_value); /* assigning value to be compared to in A register*/
 		OCR1B = (Timer1_config-> compareB_value); /* assigning value to be compared to in B register*/
+
+		CLEAR_BIT (TCCR1A,FOC1A);
+		CLEAR_BIT (TCCR1A,FOC1B);
 	}
 }
 
@@ -85,20 +94,24 @@ void Timer1_Int_Disable (int_channel channel)
 
 void OC1A_Enable (output_type output_mode)
 {
+	SET_BIT(DDRD,PD5);
 	TCCR1A |= (output_mode << 6);
 }
 void OC1A_Disable (output_type output_mode)
 {
+	CLEAR_BIT(DDRD,PD5);
 	TCCR1A &= ~(output_mode << 6);
 }
 
 
 void OC1B_Enable (output_type output_mode)
 {
+	SET_BIT(DDRD,PD4);
 	TCCR1A |= (output_mode << 4);
 }
 void OC1B_Disable (output_type output_mode)
 {
+	CLEAR_BIT(DDRD,PD4);
 	TCCR1A &= ~(output_mode << 4);
 }
 

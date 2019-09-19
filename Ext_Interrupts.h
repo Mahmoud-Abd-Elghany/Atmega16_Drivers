@@ -4,8 +4,8 @@
  *      Author: Mahmoud Abdelghany
  */
 
-#ifndef INTERRUPTS_H_
-#define INTERRUPTS_H_
+#ifndef EXT_INTERRUPTS_H_
+#define EXT_INTERRUPTS_H_
 
 #include "avr_config.h"
 #include "com_macros.h"
@@ -46,4 +46,4 @@ void INT1_mode (uint8 Mode);
 void INT2_mode (uint8 Mode);
 
 
-#endif /* INTERRUPTS_H_ */
+#endif /* EXT_INTERRUPTS_H_ */

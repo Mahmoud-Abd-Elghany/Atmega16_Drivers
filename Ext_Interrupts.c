@@ -3,7 +3,7 @@
  *
  *      Author: Mahmoud Abdelghany
  */
-#include "Interrupts.h"
+#include "Ext_Interrupts.h"
 
 
 void Enable_Ext_Int (uint8 INT_NO)
