@@ -24,7 +24,7 @@ typedef unsigned char bool;
 
 #define NULL    ((void*)0)
 
-typedef unsigned char uint8; /* 0 .. 255 */
+typedef unsigned char uint8; /* 0 .. 255  */
 typedef signed char sint8; /* -128 .. +127 */
 typedef unsigned short uint16; /* 0 .. 65535 */
 typedef signed short sint16; /* -32768 .. +32767 */

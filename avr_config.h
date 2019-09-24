@@ -8,7 +8,7 @@
 #define AVR_CONFIG_H_
 
 #ifndef F_CPU
-#define F_CPU 1000000UL /* 1MHz Clock Frequency */
+#define F_CPU 1000000UL /* 1MHz Clock Frequency  */
 #endif
 
 
