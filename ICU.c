@@ -19,10 +19,10 @@ ISR(TIMER1_CAPT_vect)
 
 void Icu_init(const ICU_config *config)
 {
-	/*setting prescaler*/
+	/*setting prescaler */
 	TCCR1B = (TCCR1B & ~(0x07)) | (config->prescaler);
 
-	/*setting edgetype*/
+	/*setting edgetype */
 	TCCR1B = (TCCR1B & (0<<ICES1)) | (config->edgetype<<ICES1);
 
 	/*Enable ICU Interrupt module*/

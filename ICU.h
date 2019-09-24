@@ -36,12 +36,12 @@ typedef struct
 void ICU_init (const ICU_config *);
 
 /*Description:
- *Function used to call another function after finishing the task
+ * Function used to call another function after finishing the task
  */
 void ICU_SetCallBack(void (*a_Fun_Ptr)(void));
 
 /*Description:
- *Used to return value of ICU captured value
+ * Used to return value of ICU captured value
  */
 uint16 ICU_getInputValue(void);
 
