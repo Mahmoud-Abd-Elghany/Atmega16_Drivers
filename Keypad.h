@@ -18,7 +18,7 @@
 #define N_row 4
 #define N_col 3
 
-/*Function responsible for detecting the key pressed in the keypad and returning its value */
+/* Function responsible for detecting the key pressed in the keypad and returning its value */
 uint8 Keypad_getPressedKey(void);
 
 #endif /* KEYPAD_H_ */

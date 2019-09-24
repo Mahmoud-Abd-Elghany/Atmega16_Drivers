@@ -40,7 +40,7 @@ uint8 Keypad_getPressedKey(void)
 
 
 #if(N_col==3)
-/*Function responsible for changing the no. of button pressed to its true value*/
+/*Function responsible for changing the no. of button pressed to its true value */
 uint8 Keypad_4x3_adjustSwitchNumber(uint8 button_no)
 {
 	switch (button_no)
