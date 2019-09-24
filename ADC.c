@@ -10,7 +10,7 @@ void ADC_init(ADC_config *ADC_config_Ptr)
 {
 
 ADMUX = 0;
-SET_BIT (ADCSRA,ADEN); /*enable ADC*/
+SET_BIT (ADCSRA,ADEN); /*enable ADC */
 
 
 /* Selecting Prescaler by assigning prescaler value to ADPS0..2 bits  in ADCSRA register  */

@@ -35,7 +35,7 @@ typedef struct
 */
 void ADC_init(ADC_config *ADC_config_Ptr);
 
-/*Function responsible for converting analog data from specific channel to digital data*/
+/*Function responsible for converting analog data from specific channel to digital data */
 uint16 ADC_ReadChannel(uint8 channel);
 
 /*Function responsible for initializing the ADC*/
