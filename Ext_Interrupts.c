@@ -41,7 +41,7 @@ void Disable_Ext_Int (uint8 INT_NO)
 void INT0_mode (uint8 Mode)
 {
 	switch (Mode){
-		case 0: //any change
+		case 0: //any  change
 			BIT_IS_SET(MCUCR,ISC00);
 			BIT_IS_CLEAR (MCUCR,ISC01);
 			break;

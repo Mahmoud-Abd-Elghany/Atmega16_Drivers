@@ -12,7 +12,7 @@
 #include "Std_def.h"
 
 /* choosing which external interrupt to Enable
- * put INT_NO by 0 to enable INT0
+ * put INT_NO by 0 to  enable INT0
  * put INT_NO by 1 to enable INT1
  * put INT_NO by 2 to enable INT2
  */
