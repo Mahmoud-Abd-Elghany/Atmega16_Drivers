@@ -78,6 +78,7 @@ typedef struct
 		SPI_Mode Mode;
 		void (*SPI_Interrupt_CallBack)(void);
 	}SPI_Config;
+	
 	extern SPI_Config SPI_Config_0;
 	
 void SPI_init(void);

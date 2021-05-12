@@ -75,16 +75,12 @@ void SPI_init(void){
 		break;
 	}
 	
-	switch (SPI_Config_0.State)
-	{
-		case SPI_ON:
-		SPCR |= (1<<SPE);
-		break;
-		case SPI_OFF:
-		break;
-	}
-	
 	switch (SPI_Config_0.ClkMode)
+	   /* 
+		* Note: Using SPI mode 3 or 2, Clk IDLE STATE is High
+		* in some uC we must change the default state of the pin to HIGH
+		* so we set the CLK pin to HIGH
+		*/
 	{
 		case SPI_ClkPol0_ClkPha0:
 		break;
@@ -93,9 +89,20 @@ void SPI_init(void){
 		break;
 		case SPI_ClkPol1_ClkPha0:
 		SPCR |= (1<<CPOL);
+		PORTB |= (1<< PB7);
 		break;
 		case SPI_ClkPol1_ClkPha1:
 		SPCR |= (1<<CPOL) | (1<<CPHA);
+		PORTB |= (1<< PB7);
+		break;
+	}
+	
+	switch (SPI_Config_0.State)
+	{
+		case SPI_ON:
+		SPCR |= (1<<SPE);
+		break;
+		case SPI_OFF:
 		break;
 	}
 }
