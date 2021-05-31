@@ -1,24 +1,23 @@
 /*
  * Keypad.h
  *
- *      Author: Mahmoud Abdelghany
- */
+ * Created: 5/30/2021 8:18:53 PM
+ *  Author: Mahmoud Abdelghany
+ */ 
+
 
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
-#include "avr_config.h"
-#include "com_macros.h"
-#include "Std_def.h"
-
+// PORT Configuration
 #define KEY_PORT_DIR DDRA
 #define KEY_PORT_OUT PORTA
-#define KEY_PORT_IN PORTA
+#define KEY_PORT_IN PINA
 
-#define N_row 4
-#define N_col 3
+// No. of Rows and Columns
+#define KEYPAD_ROWS (4)
+#define KEYPAD_COLUMNS (3)
 
-/* Function responsible for detecting the key pressed in the keypad and returning its value */
-uint8 Keypad_getPressedKey(void);
+unsigned char Keypad_pressedKey(void);
 
 #endif /* KEYPAD_H_ */
