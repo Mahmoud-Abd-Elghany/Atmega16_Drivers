@@ -14,13 +14,13 @@
 static unsigned char Keypad_buttonNumber_4x3(unsigned char No){
 	switch(No){
 		case 10:
-			return "*";
+			return '*';
 		break;
 		case 11:
 			return 0;
 		break;
 		case 12:
-			return "#";
+			return '#';
 		break;
 		default: 
 			return No; 
@@ -42,7 +42,7 @@ static unsigned char Keypad_buttonNumber_4x4(unsigned char No){
 			return 9;
 		break;
 		case 4:
-			return "-";
+			return '-';
 		break;
 		case 5:
 			return 4;
@@ -54,7 +54,7 @@ static unsigned char Keypad_buttonNumber_4x4(unsigned char No){
 			return 6;
 		break;
 		case 8:
-			return "*";
+			return '*';
 		break;
 		case 9:
 			return 1;
@@ -66,39 +66,42 @@ static unsigned char Keypad_buttonNumber_4x4(unsigned char No){
 			return 3;
 		break;
 		case 12:
-			return "-";
+			return '-';
 		break;
 		case 13:
-			return "%";
+			return '%';
 		break;
 		case 14:
 			return 0;
 		break;
 		case 15:
-			return "=";
+			return '=';
 		break;
 		case 16:
-			return "+";
+			return '+';
 		break;
 		
 	}
 }
 
-unsigned char Keypad_pressedKey(void){
+unsigned char Keypad_Pressed_Key(void){
 	/* Lowest significant 4 pins : Row(Input) pins
 	 * Highest significant 3 or 4 pins : Column(Float) pins */
-	for(unsigned char col = 0; col < KEYPAD_COLUMNS; col++){
-		KEY_PORT_DIR = ((0x10)<<col);
-		KEY_PORT_OUT = (~(0x10<<col));
+	unsigned char col,row;
+	while(1){
+		for( col= 0; col < KEYPAD_COLUMNS; col++){
+			KEY_PORT_DIR = (0x10<<col);
+			KEY_PORT_OUT = (~(0x10<<col));
 		
-		for(unsigned char row = 0; row < KEYPAD_ROWS; row++){
-			if((KEY_PORT_IN & (~(0x01) << row))){ // checking if bit is low
-				unsigned char Button_No = ((row*KEYPAD_COLUMNS)+col+1);
-				#if (KEYPAD_COLUMNS == 3)
-				return Keypad_buttonNumber_4x3(Button_No);
-				#elif (KEYPAD_COLUMNS == 4)
-				return Keypad_buttonNumber_4x4(Button_No);
-				#endif
+			for(row = 0; row < KEYPAD_ROWS; row++){
+				if(!(KEY_PORT_IN & (1<< row))){ // checking if bit is low
+					unsigned char Button_No = ((row*KEYPAD_COLUMNS)+col+1);
+					#if (KEYPAD_COLUMNS == 3)
+					return Keypad_buttonNumber_4x3(Button_No);
+					#elif (KEYPAD_COLUMNS == 4)
+					return Keypad_buttonNumber_4x4(Button_No);
+					#endif
+				}
 			}
 		}
 	}

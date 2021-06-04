@@ -25,7 +25,8 @@
 
 void LCD_init(void);
 void LCD_Send_Command(unsigned char cmd);
-void LCD_Send_Character(unsigned char Character);
+void LCD_Display_Character(unsigned char Character);
+void LCD_Display_String(unsigned char *str);
 
 
 

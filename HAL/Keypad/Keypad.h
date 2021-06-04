@@ -15,9 +15,9 @@
 #define KEY_PORT_IN PINA
 
 // No. of Rows and Columns
-#define KEYPAD_ROWS (4)
-#define KEYPAD_COLUMNS (3)
+#define KEYPAD_ROWS 4
+#define KEYPAD_COLUMNS 3
 
-unsigned char Keypad_pressedKey(void);
+unsigned char Keypad_Pressed_Key(void);
 
 #endif /* KEYPAD_H_ */
