@@ -2,7 +2,7 @@
  * USART.c
  *
  * Created: 4/23/2021 1:02:42 PM
- * Author : MAZ
+ * Author : Mahmoud Abdelghany
  */ 
 
 #include <avr/io.h>
@@ -10,7 +10,14 @@
 #include "Atmega16_USART.h"
 
 
-USART_Config USART_config_0 = {	0,
+USART_Config USART_config_0 = {.CheckFrame = USART_ParityDisable_1Stopbit,
+								.BaudRate = 9600,
+								.ClockPolarity = USART_Sample_Falling,
+								.CommunicationMode = USART_SingleProcessor,
+								.DataFrame = USART_8bit,
+								.EnableMode = USART_Tx_Rx_Enable,
+								.InterruptEnable = USART_Interrupt_Disable,
+								.OperationMode= USART_Async_DoubleSpeed,
 								.RxComp_Interrupt_CallBack = NULL_PTR,
 								.TxComp_Interrupt_CallBack = NULL_PTR,
 								.UDREmpty_Interrupt_CallBack = NULL_PTR};
@@ -75,7 +82,7 @@ void USART_init(void){
 		break;
 		case USART_Async_DoubleSpeed:
 			UCSRA_temp |= (1<<U2X);
-			BaudRate = ((float)F_CPU/(8.0*(USART_config_0.BaudRate)))-1 + 0.5; // +0.5 to get approx. value when masked to non float
+			BaudRate = (((float)F_CPU)/(8.0*(USART_config_0.BaudRate)))-1 + 0.5; // +0.5 to get approx. value when masked to non float
 		break;
 		case USART_Sync:
 			UCSRC_temp |= (1<<UMSEL);
@@ -196,7 +203,7 @@ void USART_sendByte_Polling(unsigned short byte){
 
 unsigned short USART_recieveByte_Polling(void){
 	while((UCSRA & (1<<RXC)) == 0){} //Polling until there is unread data
-		unsigned short Data = 0;
+	unsigned short Data = 0;
 	/* Error Checking */
 	if((UCSRA & ((1<<FE) | (1<<DOR) | (1<<PE))) == 1)
 	{
@@ -217,7 +224,7 @@ unsigned short USART_recieveByte_Polling(void){
 		Data |= (RXB8 << 8) | UDR;
 	}
 	else{
-		Data |= UDR;
+		Data = UDR;
 	}
 	return Data;
 }

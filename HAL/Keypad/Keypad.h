@@ -8,6 +8,8 @@
 
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
+#include <util/delay.h>
+
 
 // PORT Configuration
 #define KEY_PORT_DIR DDRA

@@ -83,6 +83,7 @@ void SPI_init(void){
 		*/
 	{
 		case SPI_ClkPol0_ClkPha0:
+		SPCR &= (~(1<<CPHA)) & (~(1<<CPOL));
 		break;
 		case SPI_ClkPol0_ClkPha1:
 		SPCR |= (1<<CPHA);

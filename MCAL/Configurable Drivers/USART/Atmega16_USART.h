@@ -2,7 +2,7 @@
  * USART.h
  *
  * Created: 4/23/2021 1:16:33 PM
- *  Author: MAZ
+ *  Author: Mahmoud Abdelghany
  */ 
 
 
@@ -11,7 +11,7 @@
 
 /*Should be defined from uC configuration file*/
 #ifndef F_CPU
-#define F_CPU 1000000 
+#define F_CPU 1000000
 #endif
 
 #define NULL_PTR ((void*)0)

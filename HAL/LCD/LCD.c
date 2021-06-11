@@ -44,7 +44,11 @@ void LCD_Send_Command(unsigned char cmd){
 }
 
 void LCD_Display_Character(unsigned char Char){
+	if((Char >=0) && (Char<=9)){
+		Char = Char + '0';
+	}
 	LCD_PORT_DIR |= (1<<RS_PIN) | (1<<ENABLE_PIN) | (1<<R_W_PIN); //Setting Enable, R/W and Register Select pins to output
+	_delay_ms(1);
 	LCD_PORT_OUT &= (~(1<<R_W_PIN));
 	LCD_PORT_OUT |= (1<<RS_PIN);
 	
@@ -68,10 +72,9 @@ void LCD_Display_Character(unsigned char Char){
 }
 
 void LCD_Display_String(unsigned char *str){
-	unsigned char i = 0;
+	signed char i = 0;
 	while(str[i] != '\0'){
 		LCD_Display_Character(str[i]);
 		i++;
-		_delay_ms(300);
 	}
 }
